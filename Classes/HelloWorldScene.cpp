@@ -37,6 +37,7 @@ bool HelloWorld::init()
     
     CCLOG("%s",json->objectForKey("a")->as_string().c_str());
     
+    //list Child node
     CCJSON_FOREACH(arr, i) {
         CCLOG("%s", i->as_string().c_str());
     }
@@ -58,11 +59,12 @@ bool HelloWorld::init()
     
     CCJSONPtr glossDiv = glossary->objectForKey("GlossDiv");
     
+    //get Multi-level child nodes
     CCJSONPtr abbrev = glossDiv->objectForKeys("GlossList","GlossEntry","Abbrev",NULL);
     
     CCLOG("%s", abbrev->as_string().c_str());
     
-    
+    //get Multi-level child nodes with path
     CCJSONPtr glossSeeAlso = glossDiv->objectForPath("GlossList/GlossEntry/GlossDef/GlossSeeAlso");
     
     CCJSON_FOREACH(glossSeeAlso, i) {
@@ -72,10 +74,27 @@ bool HelloWorld::init()
         CCLOG("no data");
     }
     
-    
+    //get Multi-level child nodes with path, Array
     CCJSONPtr XML = glossDiv->objectForPath("GlossList/GlossEntry/GlossDef/GlossSeeAlso/@0");
     
     CCLOG("%s", XML->as_string().c_str());
+    
+    
+    //create json
+    
+    CCJSONPtr node = CCJSON::node();
+    node->push("a", "a");
+    
+    CCJSONPtr ar = CCJSON::node();
+    ar->push("AAAA");
+    ar->push("BBBB");
+    ar->push(1);
+    ar->push(1.5);
+    ar->push(true);
+    
+    node->push(ar);
+    
+    CCLOG("%s",node->str().c_str());
     
     
     auto visibleSize = Director::getInstance()->getVisibleSize();
