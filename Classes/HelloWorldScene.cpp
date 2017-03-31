@@ -30,7 +30,7 @@ bool HelloWorld::init()
     }
     
     
-    const char *jsonString = CCJSONSTR({'a':"b","arr":["中文","日文","English"]});
+    const char *jsonString = CCJSONSTR({'a':"b","arr":["中文","日文","English","🤣😂😊😇🙂😍🍇"]});
     
     CCJSONPtr json = CCJSON::parse(jsonString);
     CCJSONPtr arr = json->objectForKey("arr");

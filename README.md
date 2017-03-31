@@ -1,9 +1,10 @@
 # ccjson
 json for cocos2dx, support ios, macdesktop, android etc.
 C ++ cocos2dx native implementation
+support emoji
 
 ```
-const char *jsonString = CCJSONSTR({'a':"b","arr":["中文","日文","English"]});
+const char *jsonString = CCJSONSTR({'a':"b","arr":["中文","日文","English","🤣😂😊😇🙂😍🍇"]});
 
 CCJSONPtr json = CCJSON::parse(jsonString);
 CCJSONPtr arr = json->objectForKey("arr");
