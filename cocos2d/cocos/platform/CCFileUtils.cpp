@@ -1150,13 +1150,14 @@ bool FileUtils::createDirectory(const std::string& path)
 
 bool FileUtils::removeDirectory(const std::string& path)
 {
+    return true;
     std::string command = "rm -r ";
     // Path may include space.
     command += "\"" + path + "\"";
-    if (system(command.c_str()) >= 0)
-        return true;
-    else
-        return false;
+//    if (system(command.c_str()) >= 0)
+//        return true;
+//    else
+//        return false;
 }
 
 bool FileUtils::removeFile(const std::string &path)

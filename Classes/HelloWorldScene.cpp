@@ -38,7 +38,7 @@ bool HelloWorld::init()
     CCLOG("%s",json->objectForKey("a")->as_string().c_str());
     
     //list Child node
-    CCJSON_FOREACH(arr, i) {
+    JSON_FOREACH(arr, i) {
         CCLOG("%s", i->as_string().c_str());
     }
     else {
@@ -67,7 +67,7 @@ bool HelloWorld::init()
     //get Multi-level child nodes with path
     CCJSONPtr glossSeeAlso = glossDiv->objectForPath("GlossList/GlossEntry/GlossDef/GlossSeeAlso");
     
-    CCJSON_FOREACH(glossSeeAlso, i) {
+    JSON_FOREACH(glossSeeAlso, i) {
         CCLOG("%s", i->as_string().c_str());
     }
     else {
