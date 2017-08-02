@@ -299,7 +299,7 @@ private:
         else
         {
             std::ostringstream o;
-            o << std::fixed << std::boolalpha << value;
+            o << std::boolalpha << value;
             this->m_string = o.str();
             this->m_type = JSON_NUMBER;
         }
